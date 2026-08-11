@@ -1,0 +1,2 @@
+window.SWIFTDROP_SUPABASE_URL = "";
+window.SWIFTDROP_SUPABASE_KEY = "";

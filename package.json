@@ -1,0 +1,18 @@
+{
+  "name": "swiftdrop-v8",
+  "version": "8.0.0",
+  "private": true,
+  "scripts": {
+    "cap:add:android": "npx cap add android",
+    "cap:sync": "npx cap sync android",
+    "cap:open": "npx cap open android",
+    "android": "npm run cap:sync && npm run cap:open",
+    "build": "echo 'Static web bundle ready in www/'"
+  },
+  "dependencies": {
+    "@capacitor/android": "latest",
+    "@capacitor/cli": "latest",
+    "@capacitor/core": "latest",
+    "@supabase/supabase-js": "latest"
+  }
+}
