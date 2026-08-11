@@ -35,11 +35,11 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync android
 
-      - name: Build APK
-  run: |
-    cd android
-    chmod +x gradlew
-    ./gradlew assembleDebug
+            - name: Build APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
       - name: Upload SwiftDrop APK
         uses: actions/upload-artifact@v4
