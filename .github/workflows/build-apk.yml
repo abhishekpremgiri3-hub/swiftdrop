@@ -29,19 +29,19 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Add Android platform
+            - name: Add Android platform
         run: npx cap add android
 
-              - name: Sync Capacitor
-          run: npx cap sync android
+      - name: Sync Capacitor
+        run: npx cap sync android
 
-        - name: Build APK
-          run: |
-            cd android
-            chmod +x gradlew
-            ./gradlew assembleDebug
+      - name: Build APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
-        - name: Upload SwiftDrop APK
+      - name: Upload SwiftDrop APK
         uses: actions/upload-artifact@v4
         with:
           name: SwiftDrop-APK
