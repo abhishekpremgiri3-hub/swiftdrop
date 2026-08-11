@@ -1,20 +1,20 @@
 name: Build SwiftDrop APK
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout SwiftDrop
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -29,10 +29,10 @@ jobs:
           distribution: temurin
           java-version: 21
 
-            - name: Add Android platform
+      - name: Add Android platform
         run: npx cap add android
 
-            - name: Sync Capacitor
+      - name: Sync Capacitor
         run: npx cap sync android
 
       - name: Build APK
