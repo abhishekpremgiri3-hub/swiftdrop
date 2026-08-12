@@ -1,6 +1,36 @@
-# SwiftDrop V8 + Capacitor + V9
+# SwiftDrop V10
 
-Prepared package combining the V8 app UI with the V9 Supabase backend bridge and Capacitor Android configuration.
+SwiftDrop V10 is a clean Capacitor Android starter with a mobile-first delivery order flow.
 
-The package is ready to generate the native Android project with `npx cap add android`.
-It does not contain a deployed Supabase project or private credentials.
+## Current V10 foundation
+
+- Customer delivery form
+- Indian mobile validation
+- Pickup/drop validation
+- Distance validation
+- Deterministic distance pricing
+- Unique order IDs
+- Local order storage
+- Order status foundation
+- Capacitor Android configuration
+- GitHub Actions APK workflow
+
+## Build
+
+Requirements: Node 20+, Java 17.
+
+```bash
+npm install
+npm run build
+npx cap add android
+npx cap sync android
+cd android
+./gradlew assembleDebug
+```
+
+APK:
+`android/app/build/outputs/apk/debug/app-debug.apk`
+
+## Important
+
+This V10 foundation is designed to build cleanly. Real multi-user backend, authentication, live GPS, maps, payments, and rider dispatch should be connected before a production Play Store launch.

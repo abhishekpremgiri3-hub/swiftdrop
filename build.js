@@ -1,32 +1,14 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 const root = __dirname;
-const www = path.join(root, "www");
+const web = path.join(root, 'www');
 
-const files = [
-  "index.html",
-  "styles.css",
-  "config.js",
-  "backend.js",
-  "app.js"
-];
+fs.rmSync(web, { recursive: true, force: true });
+fs.mkdirSync(web, { recursive: true });
 
-if (fs.existsSync(www)) {
-  fs.rmSync(www, { recursive: true, force: true });
+for (const file of ['index.html', 'styles.css', 'config.js', 'backend.js', 'app.js']) {
+  fs.copyFileSync(path.join(root, file), path.join(web, file));
 }
 
-fs.mkdirSync(www, { recursive: true });
-
-for (const file of files) {
-  const source = path.join(root, file);
-  const destination = path.join(www, file);
-
-  if (!fs.existsSync(source)) {
-    throw new Error(`Missing required file: ${file}`);
-  }
-
-  fs.copyFileSync(source, destination);
-}
-
-console.log("SwiftDrop web bundle created successfully in www/");
+console.log('SwiftDrop V10 build complete: ./www');

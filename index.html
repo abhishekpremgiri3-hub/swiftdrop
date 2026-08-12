@@ -1,4 +1,74 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#35e6a0"><title>SwiftDrop V8</title><link rel="stylesheet" href="styles.css"></head>
-<body><div id="app"></div><script src="config.js"></script><script type="module">import "./backend.js";</script><script src="app.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>SwiftDrop V10</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><div class="brand">SwiftDrop</div><div class="sub">V10 • Local delivery</div></div>
+    <span class="online"></span>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="badge">SWIFTDROP V10</span>
+      <h1>Fast, simple<br><span>local delivery.</span></h1>
+      <p>Pickup and delivery across Varachha, Kamrej, Kadodara, Parvat Patiya and nearby Surat areas.</p>
+    </section>
+
+    <section class="card">
+      <div class="heading"><div><h2>Create delivery</h2><p>Check every detail before confirming.</p></div></div>
+      <form id="orderForm" novalidate>
+        <label>Customer name
+          <input id="customerName" autocomplete="name" placeholder="Your name" required>
+        </label>
+        <label>Mobile number
+          <input id="phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" required>
+        </label>
+        <label>Pickup address
+          <textarea id="pickup" placeholder="Full pickup address" required></textarea>
+        </label>
+        <label>Delivery address
+          <textarea id="drop" placeholder="Full delivery address" required></textarea>
+        </label>
+        <div class="two">
+          <label>Package
+            <select id="packageType">
+              <option>Document</option>
+              <option>Small parcel</option>
+              <option>Medium parcel</option>
+              <option>Large parcel</option>
+            </select>
+          </label>
+          <label>Distance (km)
+            <input id="distance" type="number" min="0.1" max="40" step="0.1" placeholder="e.g. 7.5" required>
+          </label>
+        </div>
+
+        <div id="error" class="error" hidden></div>
+
+        <div class="price">
+          <div><span>Estimated delivery fee</span><strong id="price">₹40</strong></div>
+          <small>Base ₹40 + distance rates. Maximum service distance: 40 km.</small>
+        </div>
+
+        <button type="submit">Confirm delivery</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="heading"><div><h2>Recent orders</h2><p>Saved locally on this device.</p></div></div>
+      <div id="orders" class="orders"></div>
+    </section>
+  </main>
+
+  <footer>SwiftDrop V10 • Version 10.0.0</footer>
+  <script src="config.js"></script>
+  <script src="backend.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

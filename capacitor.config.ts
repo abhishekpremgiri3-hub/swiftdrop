@@ -4,10 +4,7 @@ const config: CapacitorConfig = {
   appId: 'com.swiftdrop.app',
   appName: 'SwiftDrop',
   webDir: 'www',
-  bundledWebRuntime: false,
-  server: {
-    androidScheme: 'https'
-  }
+  bundledWebRuntime: false
 };
 
 export default config;
